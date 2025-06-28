@@ -1,103 +1,55 @@
-import Image from "next/image";
+import Image from 'next/image';
+import Link from 'next/link';
+import { exhibitionsData } from '../data/exhibitions';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const latestExhibition = exhibitionsData.upcoming[0]; // Get the first upcoming exhibition
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div className="min-h-screen flex flex-col">
+      {/* Main Visual Section */}
+      <section className="relative w-full h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden">
+        <Image
+          src="/images/main-visual.jpg"
+          alt="Main Visual"
+          fill
+          sizes="100vw"
+          style={{ objectFit: 'cover' }}
+          priority
+          className="z-0"
+        />
+        <div className="relative z-10 text-white text-center p-8 bg-black bg-opacity-50 rounded-lg">
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 font-serif">Asai Masahiro</h1>
+          <p className="text-xl md:text-2xl font-light">Contemporary Artist</p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Artist Statement Section */}
+      <section className="container mx-auto px-4 py-16 text-center">
+        <h2 className="text-4xl font-bold mb-8 font-serif">Artist Statement</h2>
+        <div className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-700">
+          <p className="mb-4">実在と不在という概念を軸に、写真をベースとした様々な表現を試みています。一本の糸が実在するかのように見える「thread area」や、実物大で印刷した写真を空間に再配置する「fake existence」など、思い込みや錯覚による曖昧な存在感を創出し、見た目と事実の間に矛盾を生じさせる作品を制作しています。</p>
+          <Link href="/cv" className="mt-8 inline-block text-blue-600 hover:underline text-lg">Read Full CV &rarr;</Link>
+        </div>
+      </section>
+
+      {/* Latest Exhibitions Section */}
+      <section className="container mx-auto px-4 py-16 text-center bg-gray-50">
+        <h2 className="text-4xl font-bold mb-8 font-serif">Latest Exhibitions</h2>
+        {latestExhibition ? (
+          <div className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-700">
+            <h3 className="text-2xl font-semibold mb-2">{latestExhibition.title} ({latestExhibition.type})</h3>
+            <p className="text-gray-600 mb-1">{latestExhibition.date}</p>
+            <p className="text-gray-600">{latestExhibition.venue}, {latestExhibition.location}</p>
+            {latestExhibition.description && (
+              <p className="mt-4">{latestExhibition.description[0]}</p>
+            )}
+            <Link href="/exhibitions" className="mt-8 inline-block text-blue-600 hover:underline text-lg">View All Exhibitions &rarr;</Link>
+          </div>
+        ) : (
+          <p className="text-lg text-gray-700">No upcoming exhibitions at this time.</p>
+        )}
+      </section>
     </div>
   );
 }
