@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from 'react';
 import { cvData } from '../../data/cv';
 
@@ -128,7 +126,7 @@ const CVPage = () => {
               <h2 className="text-2xl font-semibold mb-4">出版物</h2>
               <ul className="list-disc list-inside space-y-2">
                 {cvData.publications.map((item, index) => (
-                  <li key={index}>{item.year}: "{item.title}" ({item.type})</li>
+                  <li key={index}>{item.year}: &quot;{item.title}&quot; ({item.type})</li>
                 ))}
               </ul>
             </section>

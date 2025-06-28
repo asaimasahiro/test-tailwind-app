@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { works } from '../../../data/works';
 import { notFound } from 'next/navigation';
 import ImageCarousel from '../../../components/ImageCarousel';
