@@ -2,6 +2,12 @@ import { works } from '../../../data/works';
 import { notFound } from 'next/navigation';
 import ImageCarousel from '../../../components/ImageCarousel';
 
+export async function generateStaticParams() {
+  return works.map((work) => ({
+    workId: work.id,
+  }));
+}
+
 interface WorkDetailPageProps {
   params: { workId: string };
 }
