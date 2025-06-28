@@ -53,6 +53,8 @@ export const cvData = {
     { year: 2013, name: 'Aichi Triennale 2013 Contemporary Art Exhibition Planning Competition, Selected', nameJp: 'あいちトリエンナーレ2013 現代美術展企画コンペ　入選' },
     { year: 2013, name: 'Arts Challenge 2013, Selected', nameJp: 'アーツチャレンジ2013 入選' },
   ],
-  publications: [], // No specific publications listed on the provided page
+  publications: [
+    { year: 2022, title: 'Sample Publication Title', type: 'Article' },
+  ], // No specific publications listed on the provided page
   collections: [], // No specific collections listed on the provided page
 };
