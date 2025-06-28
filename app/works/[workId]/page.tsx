@@ -10,7 +10,7 @@ export async function generateStaticParams() {
 }
 
 interface WorkDetailPageProps extends PageProps {
-  params: { workId: string };
+  params: Record<string, string | string[]>;
 }
 
 const WorkDetailPage = ({ params }: WorkDetailPageProps) => {
