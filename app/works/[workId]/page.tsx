@@ -1,6 +1,7 @@
 import { works } from '../../../data/works';
 import { notFound } from 'next/navigation';
 import ImageCarousel from '../../../components/ImageCarousel';
+import type { PageProps } from 'next';
 
 export async function generateStaticParams() {
   return works.map((work) => ({
@@ -8,8 +9,8 @@ export async function generateStaticParams() {
   }));
 }
 
-interface WorkDetailPageProps {
-  params: Record<string, string>;
+interface WorkDetailPageProps extends PageProps {
+  params: { workId: string };
 }
 
 const WorkDetailPage = ({ params }: WorkDetailPageProps) => {
