@@ -9,7 +9,7 @@ export async function generateStaticParams() {
 }
 
 interface WorkDetailPageProps {
-  params: { workId: string };
+  params: Record<string, string>;
 }
 
 const WorkDetailPage = ({ params }: WorkDetailPageProps) => {
