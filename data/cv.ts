@@ -56,5 +56,7 @@ export const cvData = {
   publications: [
     { year: 2022, title: 'Sample Publication Title', type: 'Article' },
   ], // No specific publications listed on the provided page
-  collections: [], // No specific collections listed on the provided page
+  collections: [
+    { name: 'Sample Collection Name' },
+  ], // No specific collections listed on the provided page
 };
