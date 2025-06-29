@@ -1,4 +1,21 @@
-export const works = [
+interface MediaItem {
+  type: 'image' | 'youtube';
+  src: string;
+  alt?: string;
+}
+
+interface Work {
+  id: string;
+  title: string;
+  year: number;
+  media: MediaItem[];
+  description: string;
+  descriptionEn: string;
+  material?: string; // New optional field for material
+  size?: string;     // New optional field for size
+}
+
+export const works: Work[] = [
   {
     id: 'falsehood-tactile',
     title: 'Falsehood tactile',
@@ -7,7 +24,9 @@ export const works = [
       { type: 'image', src: '/images/falsehood-tactile-white-line.jpg' },
     ],
     description: 'Archival Pigment Print, 440×318 mm. 画像生成AI（midjourney）でイメージを生成させ、それを現実の中で探し撮影する。ただし、AIに画像を生成させるテキストは自分の身近にある現実を形容したものであり、それらを探して撮影する中で、さらに新たなイメージを生成している。AIから現実の一方通行のプロセスではなく、コミュニケーションをとりながら２枚のイメージを作っていくもの。AIは写真を模倣して現実に寄り添っていきますが、自分は逆にAIの出してきたイメージに寄り寄り添っていく（とくに撮影後の色調処理など）。現実らしい見た目をした”非存在”としての生成イメージと、現実を参照しながらも”絶対的な事実”ではない写真。この２つのメディアの現時点での重なりを形にした。',
-    descriptionEn: 'Archival Pigment Print, 440×318 mm. Falsehood tactile: Generating images with AI (Midjourney) and then searching for and photographing them in reality. However, the text used to generate images with AI describes the reality close to me, and by searching for and photographing them, new images are further generated. It\'s not a one-way process from AI to reality, but a communication that creates two images. AI imitates photos and approaches reality, but I, on the contrary, approach the images produced by AI (especially in color tone processing after shooting). The generated image as a \'non-existent\' thing with a realistic appearance, and the photograph that refers to reality but is not an \'absolute fact\'. This work shapes the current overlap of these two media.',
+    descriptionEn: 'Archival Pigment Print, 440×318 mm. Falsehood tactile: Generating images with AI (Midjourney) and then searching for and photographing them in reality. However, the text used to generate images with AI describes the reality close to me, and by searching for and photographing them, new images are further generated. It\'s not a one-one-way process from AI to reality, but a communication that creates two images. AI imitates photos and approaches reality, but I, on the contrary, approach the images produced by AI (especially in color tone processing after shooting). The generated image as a \'non-existent\' thing with a realistic appearance, and the photograph that refers to reality but is not an \'absolute fact\'. This work shapes the current overlap of these two media.',
+    material: 'Archival Pigment Print',
+    size: '440×318 mm',
   },
   {
     id: 'fake-existence-kuronoz',
@@ -37,70 +56,110 @@ export const works = [
     title: 'MOOR',
     year: 2018,
     media: [
-      { type: 'image', src: '/images/moor.jpg' }, // Placeholder
+      { type: 'image', src: '/images/moor/Laundry-11.jpg' },
+      { type: 'image', src: '/images/moor/Laundry-17.jpg' },
+      { type: 'image', src: '/images/moor/Laundry-24.jpg' },
+      { type: 'image', src: '/images/moor/Laundry-27.jpg' },
+      { type: 'image', src: '/images/moor/Laundry-28.jpg' },
+      { type: 'image', src: '/images/moor/Laundry-29.jpg' },
+      { type: 'image', src: '/images/moor/Laundry-3.jpg' },
+      { type: 'image', src: '/images/moor/Laundry-30.jpg' },
+      { type: 'image', src: '/images/moor/Laundry-31.jpg' },
+      { type: 'image', src: '/images/moor/Laundry-4.jpg' },
+      { type: 'image', src: '/images/moor/Laundry-9.jpg' },
     ],
     description: 'インクジェットプリント、観葉植物、センサーライト、マジックミラー',
     descriptionEn: 'Inkjet print, foliage plant, sensor light, magic mirror',
+    material: 'インクジェットプリント、観葉植物、センサーライト、マジックミラー',
+    size: '可変 (Variable)',
   },
   {
     id: 'fake-florting',
     title: 'FAKE FLORTING',
     year: 2017,
     media: [
-      { type: 'image', src: '/images/fake-florting.jpg' }, // Placeholder
+      { type: 'image', src: '/images/fakeflorting/_DSC6455.jpg' },
+      { type: 'image', src: '/images/fakeflorting/_DSC6458.jpg' },
     ],
     description: '風船、インクジェット',
     descriptionEn: 'Balloon, inkjet',
+    material: '風船、インクジェット',
+    size: '可変 (Variable)',
   },
   {
     id: 'empty-spaces',
     title: 'EMPTY SPACES',
     year: 2016,
     media: [
-      { type: 'image', src: '/images/empty-spaces.jpg' }, // Placeholder
+      { type: 'image', src: '/images/emptyspaces/DSC_1205.jpg' },
+      { type: 'image', src: '/images/emptyspaces/DSC_1242.jpg' },
+      { type: 'image', src: '/images/emptyspaces/DSC_1893.jpg' },
+      { type: 'image', src: '/images/emptyspaces/emptyspaces_一部.jpg' },
+      { type: 'image', src: '/images/emptyspaces/emptyspaces_一部2.jpg' },
+      { type: 'image', src: '/images/emptyspaces/emptyspaces_一部小.jpg' },
     ],
     description: 'インクジェットプリント、パテ、壁の欠損',
     descriptionEn: 'Inkjet print, putty, wall defect',
+    material: 'インクジェットプリント、パテ、壁の欠損',
+    size: '可変 (Variable)',
   },
   {
     id: 'color-temperature-wall-3000k',
     title: 'COLOR TEMPERATURE WALL [ 3000K ]',
     year: 2013,
     media: [
-      { type: 'image', src: '/images/color-temperature-wall-3000k.jpg' }, // Placeholder
+      { type: 'image', src: '/images/coortemprature3000/colortemp1.jpg' },
+      { type: 'image', src: '/images/coortemprature3000/colortenp_s.jpg' },
+      { type: 'image', src: '/images/coortemprature3000/DSC_8527.jpg' },
+      { type: 'image', src: '/images/coortemprature3000/DSC_8529.jpg' },
     ],
     description: '色温度をあらかじめ3000Kに固定して、朝から日が暮れるまでのあいだ壁を撮り続ける。その写真は、撮られた箇所にそのまま貼り付けられその日の色の壁を作っていく。',
     descriptionEn: 'Fixing the color temperature at 3000K, I continuously photograph a wall from morning till dusk. The resulting photos are then pasted onto the very spots they were taken, creating a wall of colors from that day.',
+    material: 'インクジェットプリント',
+    size: '可変 (Variable)',
   },
   {
     id: 'twilight-5560',
     title: 'TWILIGHT[5560]',
     year: 2013,
     media: [
-      { type: 'image', src: '/images/twilight-5560.jpg' }, // Placeholder
+      { type: 'image', src: '/images/twilight5560/whitepaper_o_765_510_s.jpg' },
     ],
     description: '色温度をあらかじめ5560Kに固定して、夜明けから日が登り切るまでの間、同じ壁を撮っては 貼りを繰り返す。',
     descriptionEn: 'Fixing the color temperature at 5560K, I continuously photograph the same wall from dawn until the sun is fully up, repeatedly taking and pasting photos.',
+    material: 'インクジェットプリント',
+    size: '可変 (Variable)',
   },
   {
     id: 'twilight-2700',
     title: 'TWILIGHT[2700]',
     year: 2013,
     media: [
-      { type: 'image', src: '/images/twilight-2700.jpg' }, // Placeholder
+      { type: 'image', src: '/images/twilight2700/twilight[2700]765_510.jpg' },
     ],
     description: '色温度をあらかじめ2700Kに固定して、日暮れから日が沈み切るまでの間、同じ壁を撮っては 貼りを繰り返す。',
     descriptionEn: 'Fixing the color temperature at 2700K, I continuously photograph the same wall from dusk until the sun has fully set, repeatedly taking and pasting photos.',
+    material: 'インクジェットプリント',
+    size: '可変 (Variable)',
   },
   {
     id: 'balloon-photograph',
     title: 'BALLOON PHOTOGRAPH',
     year: 2013,
     media: [
-      { type: 'image', src: '/images/balloon-photograph.jpg' }, // Placeholder
+      { type: 'image', src: '/images/balloonphotograph/balloon.jpg' },
+      { type: 'image', src: '/images/balloonphotograph/balloone-1.jpg' },
+      { type: 'image', src: '/images/balloonphotograph/balloone-2.jpg' },
+      { type: 'image', src: '/images/balloonphotograph/balloone-3.jpg' },
+      { type: 'image', src: '/images/balloonphotograph/balloone-4.jpg' },
+      { type: 'image', src: '/images/balloonphotograph/balloone-6.jpg' },
+      { type: 'image', src: '/images/balloonphotograph/DSC_2770.jpg' },
+      { type: 'image', src: '/images/balloonphotograph/DSC_2808.jpg' },
     ],
     description: 'インクジェットプリント、風船、展望回廊。愛知芸術創造センター１１F展望回廊でのインスタレーション。回廊から撮影した写真には風船が浮かんでいる。突き当りには大きな風船の写真。さらに奥に進むと大きな風船も。けれども、小さな写真に写る風船は合成によるものであるし、大きな風船の写真もそこに浮かんでいるモノを撮影したものではなく、小さな風船を大きく見えるように撮ったもの。歩みを進めるほどに情報は増えつつも、情報によって撹乱される場としての作品。',
     descriptionEn: 'Inkjet print, balloons, observation corridor. An installation at the 11th floor observation corridor of Aichi Arts Center. Balloons float in the photos taken from the corridor. At the end of the corridor is a large photo of a balloon. Further inside, there is also a large balloon. However, the balloons in the small photos are composites, and the large balloon in the photo is not a photograph of something floating there, but a small balloon photographed to appear large. As one proceeds, information increases, but the work serves as a place disrupted by information.',
+    material: 'インクジェットプリント、風船、展望回廊',
+    size: '可変 (Variable)',
   },
   {
     id: 'thread-area-100-0',
@@ -111,15 +170,348 @@ export const works = [
     ],
     description: 'インクジェットプリント 357 × 280 mm',
     descriptionEn: 'Inkjet print 357 × 280 mm',
+    material: 'インクジェットプリント',
+    size: '357 × 280 mm',
   },
   {
-     id: 'thread-area-15-0',
-     title: 'THREAD AREA [15.0]',
-     year: 2012,
-     media: [
-     { type: 'image', src:'/images/thread-area-15-0.jpg' }, // Placeholder
-      ],
-      description: 'インクジェットプリント 148 × 100 mm',
-      descriptionEn: 'Inkjet print 148 × 100 mm',
-      },
-  ];
+    id: 'thread-area-15-0',
+    title: 'THREAD AREA [15.0]',
+    year: 2012,
+    media: [
+      { type: 'image', src: '/images/threadarea15/pf_threadarea15.0.jpg' },
+    ],
+    description: 'インクジェットプリント 148 × 100 mm',
+    descriptionEn: 'Inkjet print 148 × 100 mm',
+    material: 'インクジェットプリント',
+    size: '148 × 100 mm',
+  },
+  {
+    id: 'drop-bound-bubble',
+    title: 'drop bound [bubble]',
+    year: 2012,
+    media: [
+      { type: 'image', src: '/images/dropboundbubble/syabon_684_1030.jpg' },
+    ],
+    description: 'インクジェットプリント 684 × 1030 mm',
+    descriptionEn: 'Inkjet print 684 × 1030 mm',
+    material: 'インクジェットプリント',
+    size: '684 × 1030 mm',
+  },
+  {
+    id: 'drop-bound-square',
+    title: 'DROP BOUND [SQUARE]',
+    year: 2011,
+    media: [
+      { type: 'image', src: '/images/dropboundsquare/db_square1.jpg' },
+    ],
+    description: '落ちてゆく 弾み上がる どちらかわからない あいまいな一瞬',
+    descriptionEn: 'Falling or bouncing up, an ambiguous moment where it\'s unclear which.',    material: 'インクジェットプリント',    size: '可変 (Variable)',  },
+  {
+    id: 'gray-pencil',
+    title: 'GRAY PENCIL',
+    year: 2011,
+    media: [
+      { type: 'image', src: '/images/graypencil/bw_gray.jpg' },
+      { type: 'image', src: '/images/graypencil/graypencil1.jpg' },
+      { type: 'image', src: '/images/graypencil/graypencil2.jpg' },
+    ],
+    description: '色鉛筆と同じ色の背景を用意し、白黒で撮影する。',
+    descriptionEn: 'Prepare a background of the same color as the colored pencil and photograph it in black and white.',
+    material: '色鉛筆、インクジェットプリント',
+    size: '可変 (Variable)',
+  },
+  {
+    id: 'paradox-pale-blue',
+    title: 'PARADOX',
+    year: 2011,
+    media: [
+      { type: 'image', src: '/images/paradox/black_k.jpg' },
+      { type: 'image', src: '/images/paradox/blue_k.jpg' },
+      { type: 'image', src: '/images/paradox/cobaltblue_k.jpg' },
+      { type: 'image', src: '/images/paradox/deepgreen_k.jpg' },
+      { type: 'image', src: '/images/paradox/gray2_k.jpg' },
+      { type: 'image', src: '/images/paradox/green_k.jpg' },
+      { type: 'image', src: '/images/paradox/orange_k.jpg' },
+      { type: 'image', src: '/images/paradox/pink2_k .jpg' },
+      { type: 'image', src: '/images/paradox/purple_k.jpg' },
+      { type: 'image', src: '/images/paradox/red_k .jpg' },
+      { type: 'image', src: '/images/paradox/small_ana.jpg' },
+      { type: 'image', src: '/images/paradox/white_k .jpg' },
+      { type: 'image', src: '/images/paradox/yellow_k.jpg' },
+    ],
+    description: 'クレパスを撮影し、そのクレパスで背景を塗りつぶす。',
+    descriptionEn: 'Photograph a crayon, then fill in the background with that crayon.',
+    material: 'クレパス、インクジェットプリント',
+    size: '可変 (Variable)',
+  },
+  {
+    id: 'what-are-you-looking-at',
+    title: 'WHAT ARE YOU LOOKING AT ?',
+    year: 2011,
+    media: [
+      { type: 'image', src: '/images/whatareyoulookingat/what_here.jpg' },
+      { type: 'image', src: '/images/whatareyoulookingat/what_text.jpg' },
+      { type: 'image', src: '/images/whatareyoulookingat/what_there.jpg' },
+      { type: 'image', src: '/images/whatareyoulookingat/what1.jpg' },
+    ],
+    description: '"鏡対象に設計された２部屋のそれぞれに、webカメラを設置。その一方にモニターが設置され、鑑賞者はその部屋にのみ入ることが出来る。webカメラとprocessingを使用し鑑賞者の動きを感知。動体ナシと認識した場合には、モニター前のリアルタイム映像を。（つまり自分の姿）動体アリでは、反対側の部屋のリアルタイム映像を左右反転した状態で映し出す。"',
+    descriptionEn: "Two rooms designed as mirror images, each equipped with a web camera. A monitor is installed in one of them, and viewers can only enter that room. Using a web camera and Processing, the viewer's movement is detected. If no motion is recognized, the real-time image in front of the monitor is displayed (i.e., one's own reflection). If motion is detected, the real-time image of the opposite room is displayed horizontally inverted.",
+    material: 'webカメラ、モニター、processing',
+    size: '可変 (Variable)',
+  },
+  {
+    id: 'paper-photograph-golden-ratio',
+    title: 'PAPER PHOTOGRAPH [GOLDEN RATIO]',
+    year: 2011,
+    media: [
+      { type: 'image', src: '/images/paperphoto_goldenratio/goldenratio.jpg' },
+    ],
+    description: 'インクジェットプリント 1100 × 1718 mm',
+    descriptionEn: 'Inkjet print 1100 × 1718 mm',
+    material: 'インクジェットプリント',
+    size: '1100 × 1718 mm',
+  },
+  {
+    id: 'paper-photograph-two-division',
+    title: 'PAPER PHOTOGRAPH [TWO DIVISION]',
+    year: 2011,
+    media: [
+      { type: 'image', src: '/images/paperphoto_twodivision/twodivision.jpg' },
+    ],
+    description: 'インクジェットプリント (Inkjet print), 1100 × 1555 mm',
+    descriptionEn: 'Inkjet print, 1100 × 1555 mm',
+    material: 'インクジェットプリント',
+    size: '1100 × 1555 mm',
+  },
+  {
+    id: 'frame-photograph',
+    title: 'FRAME PHOTOGRAPH',
+    year: 2011,
+    media: [
+      { type: 'image', src: '/images/flamephoto/framephoto.jpg' },
+    ],
+    description: 'ラムダプリント、額 515 × 515 × 15 mm',
+    descriptionEn: 'Lambda print, frame 515 × 515 × 15 mm',
+    material: 'ラムダプリント、額',
+    size: '515 × 515 × 15 mm',
+  },
+  {
+    id: 'clock-photograph',
+    title: 'CLOCK PHOTOGRAPH',
+    year: 2011,
+    media: [
+      { type: 'image', src: '/images/clockphotograph/clockphoto.jpg' },
+    ],
+    description: 'ラムダプリント、額 318 × 318 × 35 mm',
+    descriptionEn: 'Lambda print, frame 318 × 318 × 35 mm',
+    material: 'ラムダプリント、額',
+    size: '318 × 318 × 35 mm',
+  },
+  {
+    id: 'drop-bound-desk',
+    title: 'DROP BOUND [DESK]',
+    year: 2011,
+    media: [
+      { type: 'image', src: '/images/drop-bound-desk.jpg' }, // Placeholder
+    ],
+    description: 'インクジェットプリント、額 197 × 130 × 30 mm 愛知県 東栄町 旧東部小学校での インスタレーション',
+    descriptionEn: 'Inkjet print, frame 197 × 130 × 30 mm. Installation at Former Tobu Elementary School, Toei-cho, Aichi Prefecture.',
+    material: 'インクジェットプリント、額',
+    size: '197 × 130 × 30 mm',
+  },
+  {
+    id: 'drop-bound-tatami',
+    title: 'DROP BOUND [TATAMI]',
+    year: 2011,
+    media: [
+      { type: 'image', src: '/images/dropbound_tatami/a1.jpg' },
+    ],
+    description: 'インクジェットプリント 841 × 597 mm 愛知県 長久手 山本亭での インスタレーション',
+    descriptionEn: 'Inkjet print 841 × 597 mm. Installation at Yamamoto-tei, Nagakute, Aichi Prefecture.',
+    material: 'インクジェットプリント',
+    size: '841 × 597 mm',
+  },
+  {
+    id: 'drop-bound-basketball',
+    title: 'DROP BOUND [BASKETBALL]',
+    year: 2011,
+    media: [
+      { type: 'image', src: '/images/dropbound_basketball/baske2.jpg' },
+    ],
+    description: 'インクジェットプリント 279 × 420mm',
+    descriptionEn: 'Inkjet print 279 × 420mm',
+    material: 'インクジェットプリント',
+    size: '279 × 420mm',
+  },
+  {
+    id: 'pencil-reverse',
+    title: 'PENCIL [REVERSE]',
+    year: 2010,
+    media: [
+      { type: 'image', src: '/images/pencil/pencils_3_A1.jpg' },
+      { type: 'image', src: '/images/pencil/pencils_5_A1.jpg' },
+    ],
+    description: 'インクジェットプリント 841 × 597 mm',
+    descriptionEn: 'Inkjet print 841 × 597 mm',
+    material: 'インクジェットプリント',
+    size: '841 × 597 mm',
+  },
+  {
+    id: 'pencil-stretch',
+    title: 'PENCIL [STRETCH]',
+    year: 2010,
+    media: [
+      { type: 'image', src: '/images/pencil/pencils_3_A1.jpg' },
+      { type: 'image', src: '/images/pencil/pencils_5_A1.jpg' },
+    ],
+    description: 'インクジェットプリント 841 × 594 mm',
+    descriptionEn: 'Inkjet print 841 × 594 mm',
+    material: 'インクジェットプリント',
+    size: '841 × 594 mm',
+  },
+  {
+    id: 'zine-photograph',
+    title: 'ZINE PHOTOGRAPH',
+    year: 2010,
+    media: [
+      { type: 'image', src: '/images/zine_photo/zinephoto.jpg' },
+    ],
+    description: '上質紙にオフセット印刷 297 × 210 mm フリーマガジン[OoooO] 裏表紙を使っての作品 2000部発行',
+    descriptionEn: 'Offset print on fine paper 297 × 210 mm. Work using the back cover of free magazine [OoooO]. 2000 copies issued.',
+    material: '上質紙にオフセット印刷',
+    size: '297 × 210 mm',
+  },
+  {
+    id: 'this-is-a-cucumber',
+    title: 'これはキュウリの写真です',
+    year: 2019,
+    media: [
+      { type: 'image', src: '/images/cucumber/_DSC6541.jpg' },
+      { type: 'image', src: '/images/cucumber/_DSC6559.jpg' },
+      { type: 'image', src: '/images/cucumber/これはキュウリの写真です.jpg' },
+    ],
+    description: 'インクジェットプリント',
+    descriptionEn: 'Inkjet print',
+    material: 'インクジェットプリント',
+    size: '可変 (Variable)',
+  },
+  {
+    id: 'cultivated-image',
+    title: '耕されたイメージ',
+    year: 2019,
+    media: [
+      { type: 'image', src: '/images/cultivate/_DSC6508.jpg' },
+      { type: 'image', src: '/images/cultivate/_DSC6522.jpg' },
+      { type: 'image', src: '/images/cultivate/耕作されたイメージ.jpg' },
+      { type: 'image', src: '/images/cultivate/耕作されたイメージⅡ.jpg' },
+    ],
+    description: 'インクジェットシートダイレクトプリント 2000 × 3000 mm × 3枚\n\n一見すると長者町の各所で野菜が自生している様子を捉えた写真だが、実際は写真を切り抜いて作ったハリボテのパネルを設置して撮られた作品である。\nこの事実を知らぬ道行く人々の頭の中では、この街に豊かな農園が育っていく。\nただ、これが事実ではなく、また実物ですら無いことに気づく時、現実の街はどのように見えるのか。\n再開発によって綺羅びやかな３０階建てビルが建てられる工事壁で、空虚な存在の写真によって街のイメージを耕す。',
+    descriptionEn: 'Inkjet sheet direct print, 2000 x 3000 mm x 3 sheets.\n\nAt first glance, these photographs seem to capture vegetables growing wild throughout the Chojamachi district. In reality, they are images of papier-mâché panels, created from cut-out photographs, placed in the environment. For passersby unaware of this fact, a lush farm grows in their minds. However, upon realizing this is not fact, not even real, how does the actual city appear? On the construction walls of a glamorous 30-story building under redevelopment, the city\'s image is cultivated by photographs of an empty existence.',
+    material: 'インクジェットシートダイレクトプリント',
+    size: '2000 × 3000 mm × 3枚',
+  },
+  {
+    id: 'white-paper-photography-canson-mi-teintes',
+    title: 'WHITE PAPER PHOTOGRAPH [CANSON MI-TEINTES]',
+    year: 2013,
+    media: [
+      { type: 'image', src: '/images/placeholder.jpg' },
+    ],
+    description: 'インクジェットプリント\n33.3 × 24.2 cm\n\n白い紙を撮影する。\n白い紙に印刷する。',
+    descriptionEn: 'Inkjet print\n33.3 × 24.2 cm\n\nPhotograph a white paper.\nPrint on a white paper.',
+    material: 'インクジェットプリント',
+    size: '33.3 × 24.2 cm',
+  },
+  {
+    id: 'chojamachi-red-balloon',
+    title: '長者町の赤い風船',
+    year: 2013,
+    media: [
+      { type: 'image', src: '/images/redballoon/DSC_5423.jpg' },
+      { type: 'image', src: '/images/redballoon/DSC_6995.jpg' },
+      { type: 'image', src: '/images/redballoon/tyouzya.jpg' },
+      { type: 'image', src: '/images/redballoon/tyouzya1.jpg' },
+      { type: 'image', src: '/images/redballoon/tyouzya2.jpg' },
+      { type: 'image', src: '/images/redballoon/tyouzya3.jpg' },
+    ],
+    description: '長者町で定期的に赤い風船を上げ、その様子を写真に撮り、ハッシュタグ「#赤い風船」を付けてTwitterに投稿すると、展示場所でその写真が自動的に印刷されるというもの。',
+    descriptionEn: 'A project where red balloons were regularly released in Chojamachi, photos were taken of them, and when posted to Twitter with the hashtag #赤い風船, the photos were automatically printed at the exhibition venue.',
+    material: 'インクジェットプリント、風船',
+    size: '可変 (Variable)',
+  },
+  {
+    id: 'drop-bound-ellipsis',
+    title: 'drop bound [・・・]',
+    year: 2012,
+    media: [
+      { type: 'image', src: '/images/dropboundthree/wakusei_684_1030.jpg' },
+    ],
+    description: 'インクジェットプリント\n684 × 1030 mm',
+    descriptionEn: 'Inkjet print\n684 × 1030 mm',
+    material: 'インクジェットプリント',
+    size: '684 × 1030 mm',
+  },
+  {
+    id: 'live-small',
+    title: '小さく生える',
+    year: 2010,
+    media: [
+      { type: 'image', src: '/images/grows small/DS2_4427.jpg' },
+      { type: 'image', src: '/images/grows small/small_ana.jpg' },
+      { type: 'image', src: '/images/grows small/small_sea.jpg' },
+      { type: 'image', src: '/images/grows small/small_zouka.jpg' },
+    ],
+    description: '写真、シーグラス、\n貝、造花、芳香剤\n常滑の空き家での\nインスタレーション\n\n常滑の町で「小さなコト」を見つけた。\nそして「小さなコト」を見つめる場所を作った。',
+    descriptionEn: 'Photography, sea glass,\nshells, artificial flowers, air freshener\nInstallation in an empty house in Tokoname\n\nFound "small things" in the town of Tokoname.\nAnd created a place to gaze at "small things".',
+    material: '写真、シーグラス、貝、造花、芳香剤',
+    size: '可変 (Variable)',
+  },
+  {
+    id: 'pencil-sharpen',
+    title: 'PENCIL [SHARPEN]',
+    year: 2010,
+    media: [
+      { type: 'image', src: '/images/pencil/sharpen2010.jpg' },
+    ],
+    description: 'インクジェットプリント 841 × 597 mm',
+    descriptionEn: 'Inkjet print 841 × 597 mm',
+    material: 'インクジェットプリント',
+    size: '841 × 597 mm',
+  },
+  {
+    id: 'paper-photograph',
+    title: 'PAPER PHOTOGRAPH',
+    year: 2010,
+    media: [
+      { type: 'image', src: '/images/paperphotograph/キャンソンミタント_s.jpg' },
+    ],
+    description: '壁に紙を貼る。それを撮る。撮った写真をまた壁に貼る。それをまた撮る。',
+    descriptionEn: 'Paste paper on the wall. Photograph it. Paste the photographed paper on the wall again. Photograph it again.',
+    material: 'インクジェットプリント',
+    size: '可変 (Variable)',
+  },
+  {
+    id: "person-there",
+    title: "そこにある人",
+    year: 2009,
+    media: [
+      { type: "image", src: "/images/the_person_there/fuyuu4.jpg" },
+    ],
+    description: 'インクジェットプリント\n483 × 310 mm',
+    descriptionEn: 'Inkjet print\n483 × 310 mm',
+    material: 'インクジェットプリント',
+    size: '483 × 310 mm',
+  },
+  {
+    id: 'a-pencil',
+    title: 'A PENCIL',
+    year: 2009,
+    media: [
+      { type: 'image', src: '/images/placeholder.jpg' },
+    ],
+    description: '塗装を剥がした鉛筆にアクリルで塗装',
+    descriptionEn: 'Acrylic paint on a pencil with peeled-off paint',
+    material: '鉛筆、アクリル',
+    size: '可変 (Variable)',
+  },
+];
