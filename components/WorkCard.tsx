@@ -6,7 +6,7 @@ interface WorkCardProps {
     id: string;
     title: string;
     year: number;
-    imageUrl: string;
+    media: { type: string; src: string; }[];
     description: string;
   };
 }
